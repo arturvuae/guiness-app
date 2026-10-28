@@ -1,0 +1,6 @@
+data/
+*_equity.csv
+*_trades.csv
+levelbot_state.json
+__pycache__/
+.pytest_cache/

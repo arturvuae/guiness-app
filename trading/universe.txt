@@ -1,0 +1,43 @@
+# Liquid large-cap US stocks. Edit freely; SPY is added automatically as the market filter.
+# Survivorship bias warning: these are today's winners, so a backtest on them
+# over 20 years looks better than reality. Treat backtest results as an upper bound.
+AAPL
+MSFT
+AMZN
+GOOGL
+META
+NVDA
+JPM
+JNJ
+XOM
+PG
+V
+MA
+UNH
+HD
+KO
+PEP
+MRK
+ABBV
+COST
+WMT
+CVX
+BAC
+CSCO
+ORCL
+INTC
+MCD
+DIS
+CAT
+HON
+IBM
+TXN
+QCOM
+ADBE
+CRM
+NKE
+LMT
+UPS
+AMGN
+LOW
+MMM

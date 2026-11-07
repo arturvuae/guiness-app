@@ -1,0 +1,42 @@
+# All money values in USDT. Percentages are fractions (0.005 = 0.5%).
+
+[account]
+capital = 1000.0
+exchange = "binance-usdm"
+
+[risk]
+risk_per_trade = 0.005          # 5 USDT at 1000 capital
+max_risk_per_trade = 0.01       # hard ceiling even at max model confidence
+max_open_risk = 0.015           # sum of open stop-risk across all positions
+max_cluster_risk = 0.01         # sum of open stop-risk within one correlation cluster
+max_positions = 3
+max_leverage = 5.0              # total notional / equity
+daily_loss_limit = 0.02         # stop trading until next UTC day
+weekly_loss_limit = 0.05        # stop trading until next Monday UTC
+max_drawdown = 0.10             # from equity peak: full stop, human review
+max_cost_to_risk = 0.25         # reject a trade if round-trip costs exceed 25% of its stop-risk
+news_blackout_minutes = 5
+
+[costs]
+maker_fee = 0.0002              # Binance USD-M VIP0
+taker_fee = 0.0005
+assumed_entry = "maker"         # limit entries
+assumed_exit = "taker"          # stops are market orders
+exit_slippage = 0.0001
+default_min_notional = 5.0
+min_notional_overrides = { BTCUSDT = 100.0, ETHUSDT = 20.0 }
+
+[universe]
+quote = "USDT"
+volume_lookback_month = ""      # "" = last complete month
+min_daily_quote_volume_b = 30e6 # class B floor (avg daily, USDT)
+min_daily_quote_volume_a = 100e6
+min_history_days = 180
+intraday_days = 14              # days of 1m data used for intraday metrics
+depth_days = 3                  # days of bookDepth used for liquidity at +-0.2%
+max_cost_ratio_a = 0.50         # cost / median ATR(5m); 0.50 -> min stop 2x ATR(5m)
+max_cost_ratio_b = 0.75         # min stop 3x ATR(5m)
+max_participation = 0.05        # position notional / median 1m quote volume
+min_depth_multiple = 20.0       # depth at +-0.2% / position notional
+max_zero_volume_share = 0.02
+spread_floor_bps = 0.5

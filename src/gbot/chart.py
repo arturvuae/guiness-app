@@ -29,7 +29,7 @@ def plot(f: pd.DataFrame, title: str, path: Path) -> Path:
     colors = np.where(up, UP, DOWN)
     ax.vlines(x, f["low"], f["high"], color=colors, linewidth=0.7)
     body_lo = np.minimum(f["open"], f["close"])
-    body_h = (f["close"] - f["open"]).abs().replace(0, f["close"].abs() * 1e-6)
+    body_h = np.maximum((f["close"] - f["open"]).abs(), f["close"].abs() * 1e-5)
     ax.bar(x, body_h, bottom=body_lo, color=colors, width=0.7, linewidth=0)
 
     # FVG zones from formation until 40 bars later (visual only)
